@@ -3,10 +3,13 @@ import brand1 from "../img/brand_01.png"
 import brand2 from "../img/brand_02.png"
 import brand3 from "../img/brand_03.png"
 import brand4 from "../img/brand_04.png"
+import Header from "./Header";
+import Footer from "./Footer";
 
 const About = () => {
   return(
       <>
+          <Header/>
           <section className="bg-success py-5">
               <div className="container">
                   <div className="row align-items-center py-5">
@@ -152,6 +155,7 @@ const About = () => {
                   </div>
               </div>
           </section>
+          <Footer/>
       </>
   );
 }

@@ -1,8 +1,19 @@
 import Anh1 from "../img/feature_prod_01.jpg"
 import Anh2 from "../img/feature_prod_02.jpg"
 import Anh3 from "../img/feature_prod_03.jpg"
+import {useEffect, useState} from "react";
+import {getNewProduct} from "../service/ProductService";
+import {Link} from "react-router-dom";
 
 const NewProduct = () => {
+    const [listNew,setListNew] = useState([]);
+    const loadList = async () => {
+      const res = await getNewProduct();
+      setListNew(res.data.content)
+    }
+    useEffect(()=>{
+        loadList();
+    },[])
   return(
       <section className="bg-light">
           <div className="container py-5">
@@ -16,83 +27,37 @@ const NewProduct = () => {
                   </div>
               </div>
               <div className="row">
-                  <div className="col-12 col-md-4 mb-4">
-                      <div className="card h-100">
-                          <a href="shop-single.html">
-                              <img src={Anh1} className="card-img-top" alt="..."/>
-                          </a>
-                          <div className="card-body">
-                              <ul className="list-unstyled d-flex justify-content-between">
-                                  <li>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-muted fa fa-star"/>
-                                      <i className="text-muted fa fa-star"/>
-                                  </li>
-                                  <li className="text-muted text-right">$240.00</li>
-                              </ul>
-                              <a href="shop-single.html" className="h2 text-decoration-none text-dark">Gym Weight</a>
-                              <p className="card-text">
-                                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
-                                  deserunt.
-                              </p>
-                              <p className="text-muted">Reviews (24)</p>
+                  {listNew.map((product,index)=>{
+                      return(
+                          <div className="col-12 col-md-4 mb-4" key={index}>
+                              <div className="card h-100">
+                                  <Link to={`/detail/${product.id}`}>
+                                      <img src={product.img} className="card-img-top" alt="..." style={{height:"400px",objectFit:"cover"}}/>
+                                  </Link>
+                                  <div className="card-body">
+                                      <ul className="list-unstyled d-flex justify-content-between">
+                                          <li>
+                                              <i className="text-warning fa fa-star"/>
+                                              <i className="text-warning fa fa-star"/>
+                                              <i className="text-warning fa fa-star"/>
+                                              <i className="text-warning fa fa-star"/>
+                                              <i className="text-warning fa fa-star"/>
+                                              {/*<i className="text-muted fa fa-star"/>*/}
+                                              {/*<i className="text-muted fa fa-star"/>*/}
+                                          </li>
+                                          <li className="text-muted text-right">${product.price}</li>
+                                      </ul>
+                                      <Link to={`/detail/${product.id}`} className="h2 text-decoration-none text-dark">{product.name}</Link>
+                                      <p className="card-text">
+                                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
+                                          deserunt.
+                                      </p>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                  </div>
-                  <div className="col-12 col-md-4 mb-4">
-                      <div className="card h-100">
-                          <a href="shop-single.html">
-                              <img src={Anh2} className="card-img-top" alt="..."/>
-                          </a>
-                          <div className="card-body">
-                              <ul className="list-unstyled d-flex justify-content-between">
-                                  <li>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-muted fa fa-star"/>
-                                      <i className="text-muted fa fa-star"/>
-                                  </li>
-                                  <li className="text-muted text-right">$480.00</li>
-                              </ul>
-                              <a href="shop-single.html" className="h2 text-decoration-none text-dark">Cloud Nike
-                                  Shoes</a>
-                              <p className="card-text">
-                                  Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed,
-                                  commodo ullamcorper.
-                              </p>
-                              <p className="text-muted">Reviews (48)</p>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="col-12 col-md-4 mb-4">
-                      <div className="card h-100">
-                          <a href="shop-single.html">
-                              <img src={Anh3} className="card-img-top" alt="..."/>
-                          </a>
-                          <div className="card-body">
-                              <ul className="list-unstyled d-flex justify-content-between">
-                                  <li>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                      <i className="text-warning fa fa-star"/>
-                                  </li>
-                                  <li className="text-muted text-right">$360.00</li>
-                              </ul>
-                              <a href="shop-single.html" className="h2 text-decoration-none text-dark">Summer Addides
-                                  Shoes</a>
-                              <p className="card-text">
-                                  Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et
-                                  scelerisque ipsum lobortis nec.
-                              </p>
-                              <p className="text-muted">Reviews (74)</p>
-                          </div>
-                      </div>
-                  </div>
+                      );
+                  })}
+
               </div>
           </div>
       </section>

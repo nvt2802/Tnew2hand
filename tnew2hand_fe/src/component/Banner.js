@@ -1,6 +1,7 @@
 import Anh1 from "../img/product1.jpg";
 import Anh2 from "../img/banner_img_02.jpg";
 import Anh3 from "../img/banner_img_03.jpg";
+
 const Banner = () => {
     return (
         <>
@@ -23,19 +24,10 @@ const Banner = () => {
                                         <h1 className="h1 text-success"><b>Tnew</b> 2hand</h1>
                                         <h3 className="h2">Quality is placed at the top</h3>
                                         <p>
-                                             Shop is an eCommerce HTML5 CSS template with latest version of Bootstrap
-                                            5 (beta 1).
-                                            This template is 100% free provided by <a rel="sponsored"
-                                                                                      className="text-success"
-                                                                                      href="https://templatemo.com"
-                                                                                      target="_blank">TemplateMo</a> website.
-                                            Image credits go to <a rel="sponsored" className="text-success"
-                                                                   href="https://stories.freepik.com/" target="_blank">Freepik
-                                            Stories</a>,
-                                            <a rel="sponsored" className="text-success" href="https://unsplash.com/"
-                                               target="_blank">Unsplash</a> and
-                                            <a rel="sponsored" className="text-success" href="https://icons8.com/"
-                                               target="_blank">Icons 8</a>.
+                                            A clothing e-commerce website is an online platform where users can browse,
+                                            select, and purchase a variety of clothing items. With a wide range of
+                                            options available, the website offers a convenient and accessible shopping
+                                            experience for customers looking to buy clothes.
                                         </p>
                                     </div>
                                 </div>
