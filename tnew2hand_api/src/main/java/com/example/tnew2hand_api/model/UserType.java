@@ -1,7 +1,6 @@
 package com.example.tnew2hand_api.model;
 
 import javax.persistence.*;
-import java.util.List;
 @Entity
 public class UserType {
 
@@ -11,10 +10,17 @@ public class UserType {
     @Column(columnDefinition = "varchar(25)")
     private String name;
     private Boolean flagDeleted=false;
-    @OneToMany(mappedBy = "userType")
-    private List<User> userList;
+//    @OneToMany(mappedBy = "userType")
+//    @JacksonInject
+//    private List<User> userList;
 
     public UserType(String name, Boolean flagDeleted) {
+        this.name = name;
+        this.flagDeleted = flagDeleted;
+    }
+
+    public UserType(Long id, String name, Boolean flagDeleted) {
+        this.id = id;
         this.name = name;
         this.flagDeleted = flagDeleted;
     }
@@ -46,11 +52,11 @@ public class UserType {
         this.flagDeleted = flagDeleted;
     }
 
-    public List<User> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
-    }
+//    public List<User> getUserList() {
+//        return userList;
+//    }
+//
+//    public void setUserList(List<User> userList) {
+//        this.userList = userList;
+//    }
 }

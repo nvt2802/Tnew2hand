@@ -1,4 +1,4 @@
-package com.example.retro_care.user.common;
+package com.example.tnew2hand_api.common;
 
 import org.springframework.validation.Errors;
 
@@ -6,10 +6,10 @@ public class ValidateAppUser {
     private ValidateAppUser() {
         throw new IllegalStateException("Utility class");
     }
-    private static final String NAME_NOT_EMPTY = "Không để trống tài khoản";
-    private static final String PASSWORD_NOT_EMPTY = "Không để trống mật khẩu";
-    private static final String CHAR_LENGTH_LESS_THREE = "Số lượng ký tự phải lớn hơn hoặc bằng 3";
-    private static final String CHAR_LENGTH_GREATER_FIFTY = "Số lượng ký tự bé hơn hoặc bằng 50";
+    private static final String NAME_NOT_EMPTY = "Name not empty";
+    private static final String PASSWORD_NOT_EMPTY = "Password not empty";
+    private static final String CHAR_LENGTH_LESS_THREE = "Char length less than 3";
+    private static final String CHAR_LENGTH_GREATER_FIFTY = "Char length greater than 50";
     private static final String USER_NAME = "userName";
     private static final String PASSWORD = "password";
     private static final String CONFIRM_PASSWORD = "confirmPassword";

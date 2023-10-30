@@ -1,5 +1,7 @@
 package com.example.tnew2hand_api.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,7 @@ public class OrderDetail {
     private Double price;
     private Boolean flagDeleted=false;
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "app_order_id")
     private AppOrder appOrder;
     @ManyToOne

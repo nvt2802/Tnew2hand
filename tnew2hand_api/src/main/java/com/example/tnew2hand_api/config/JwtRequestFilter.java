@@ -1,6 +1,6 @@
-package com.example.retro_care.user.config;
+package com.example.tnew2hand_api.config;
 
-import com.example.retro_care.user.service.IAppUserService;
+import com.example.tnew2hand_api.service.IAppUserService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

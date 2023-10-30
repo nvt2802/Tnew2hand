@@ -1,4 +1,4 @@
-package com.example.retro_care.user.model;
+package com.example.tnew2hand_api.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

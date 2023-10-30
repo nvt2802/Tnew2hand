@@ -1,4 +1,4 @@
-package com.example.retro_care.user.config;
+package com.example.tnew2hand_api.config;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

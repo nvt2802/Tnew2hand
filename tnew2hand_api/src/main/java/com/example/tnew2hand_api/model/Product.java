@@ -1,7 +1,6 @@
 package com.example.tnew2hand_api.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Product {
@@ -12,20 +11,28 @@ public class Product {
     private String name;
     @Column(columnDefinition = "varchar(20)")
     private String size;
+    @Column(columnDefinition = "varchar(350)")
+    private String description;
+    @Column(columnDefinition = "longtext")
+    private String img;
     private Double price;
     private Integer quantity;
     private Boolean flagDeleted=false;
-    @OneToMany(mappedBy = "product")
-    private List<OrderDetail> orderDetails;
-    @OneToMany(mappedBy = "product")
-    private List<CartItem> cartItems;
+//    @OneToMany(mappedBy = "product")
+//    @JacksonInject
+//    private List<OrderDetail> orderDetails;
+//    @OneToMany(mappedBy = "product")
+//    @JacksonInject
+//    private List<CartItem> cartItems;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public Product(String name, String size, Double price, Integer quantity, Boolean flagDeleted, Category category) {
+    public Product(String name, String size, String description, String img, Double price, Integer quantity, Boolean flagDeleted, Category category) {
         this.name = name;
         this.size = size;
+        this.description = description;
+        this.img = img;
         this.price = price;
         this.quantity = quantity;
         this.flagDeleted = flagDeleted;
@@ -33,6 +40,22 @@ public class Product {
     }
 
     public Product() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public Long getId() {
@@ -83,21 +106,21 @@ public class Product {
         this.flagDeleted = flagDeleted;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
-    }
-
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
-    }
-
-    public List<CartItem> getCartItems() {
-        return cartItems;
-    }
-
-    public void setCartItems(List<CartItem> cartItems) {
-        this.cartItems = cartItems;
-    }
+//    public List<OrderDetail> getOrderDetails() {
+//        return orderDetails;
+//    }
+//
+//    public void setOrderDetails(List<OrderDetail> orderDetails) {
+//        this.orderDetails = orderDetails;
+//    }
+//
+//    public List<CartItem> getCartItems() {
+//        return cartItems;
+//    }
+//
+//    public void setCartItems(List<CartItem> cartItems) {
+//        this.cartItems = cartItems;
+//    }
 
     public Category getCategory() {
         return category;
